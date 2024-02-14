@@ -75,6 +75,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - create react-app
 - configured tailwindCSS
+- header
+- Login Form
 
 # features
 
