@@ -11,15 +11,19 @@ const Login = () => {
         />
       </div>
 
-      <form className=" w-3/12 absolute p-12 bg-black my-40 mx-auto right-0 left-0 text-white">
-        <h1 className="font-bold text-3xl p-4">Sign In </h1>
+      <form className=" w-3/12 absolute p-10 bg-black bg-opacity-70 my-40 mx-auto right-0 left-0">
+        <h1 className="font-bold text-3xl p-2 mb-4  text-white">Sign In </h1>
         <input
           type="text"
           placeholder="Email or phone number"
-          className="p-2 m-2"
+          className="p-4 m-2 w-full  text-black rounded-sm"
         />
-        <input type="password" placeholder="Password" className="p-2 m-2" />
-        <button className="border border-red p-2 m-3 bg-red-700 left-0">
+        <input
+          type="password"
+          placeholder="Password"
+          className="p-4 m-2 w-full  text-black  rounded-sm"
+        />
+        <button className="p-2 m-2 bg-red-600 w-full rounded-sm text-white">
           Sign In
         </button>
       </form>
