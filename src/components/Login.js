@@ -18,27 +18,43 @@ const Login = () => {
         />
       </div>
 
-      <form className=" w-3/12 absolute p-10 bg-black bg-opacity-80 my-40 mx-auto right-0 left-0 border rounded-md border-transparent">
-        <h1 className="font-bold text-3xl p-2 mb-4  text-white">
-          {" "}
-          {isSignInForm ? "Sign In" : "Sign Up"}{" "}
+      <form className=" w-3/12 absolute p-10 bg-black bg-opacity-80 my-40 mx-auto right-0 left-0 border rounded-md border-transparent  text-white">
+        <h1 className="font-bold text-3xl p-2 mb-4 ">
+          {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
+        {!isSignInForm && (
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="p-4 m-2 w-full bg-gray-700 rounded-sm"
+          />
+        )}
+
         <input
           type="text"
           placeholder="Email or phone number"
-          className="p-4 m-2 w-full  text-black rounded-sm"
+          className="p-4 m-2 w-full  bg-gray-700 rounded-sm"
         />
         <input
           type="password"
           placeholder="Password"
-          className="p-4 m-2 w-full  text-black  rounded-sm"
+          className="p-4 m-2 w-full bg-gray-700 rounded-sm"
         />
+
         <button className="p-2 m-2 bg-red-600 w-full rounded-sm text-white">
-          Sign In
+          {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 
-        <p className="py-4 text-gray-400" onClick={toggleSignInForm}>
-          New to Netflix? Sign up now.
+        {isSignInForm && (
+          <h1 className=" flex text justify-center cursor-pointer">
+            Forgot password?
+          </h1>
+        )}
+
+        <p className="py-4 px-2 cursor-pointer" onClick={toggleSignInForm}>
+          {isSignInForm
+            ? "New to Netflix? Sign Up now."
+            : "Already registered? Sign In now."}
         </p>
       </form>
     </div>
