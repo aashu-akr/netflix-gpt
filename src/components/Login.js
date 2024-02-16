@@ -4,7 +4,9 @@ import { useState, useRef } from "react";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -14,12 +16,14 @@ const Login = () => {
 
   const handleButtonClick = () => {
     //validate the form data
-    console.log(email.current.value);
-    console.log(password.current.value);
+    const message = checkValidData(
+      name.current.value,
+      email.current.value,
+      password.current.value
+    );
+    setErrorMessage(message);
 
-    const message = checkValidData(email.current.value, password.current.value);
-
-    console.log(message);
+    // Sign Up/Sign In
   };
 
   return (
@@ -43,6 +47,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Full Name"
             className="p-4 m-2 w-full bg-gray-700 rounded-sm"
@@ -61,6 +66,8 @@ const Login = () => {
           placeholder="Password"
           className="p-4 m-2 w-full bg-gray-700 rounded-sm"
         />
+
+        <p className="text-red-500 p-2 text-lg ">{errorMessage}</p>
 
         <button
           className="p-2 m-2 bg-red-600 w-full rounded-sm text-white"
