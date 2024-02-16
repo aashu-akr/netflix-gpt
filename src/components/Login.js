@@ -8,6 +8,10 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   };
 
+  const handleButtonClick = () => {
+    //validate the form data
+  };
+
   return (
     <div>
       <Header />
@@ -41,7 +45,10 @@ const Login = () => {
           className="p-4 m-2 w-full bg-gray-700 rounded-sm"
         />
 
-        <button className="p-2 m-2 bg-red-600 w-full rounded-sm text-white">
+        <button
+          className="p-2 m-2 bg-red-600 w-full rounded-sm text-white"
+          onClick={handleButtonClick}
+        >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 

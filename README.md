@@ -73,10 +73,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # netflix-gpt
 
-- create react-app
-- configured tailwindCSS
-- header
+- Create react-app
+- Configured tailwindCSS
+- Header
+- Routing
 - Login Form
+- Sign Up Form
+- Form validation
+- useRef Hook
 
 # features
 
