@@ -18,11 +18,10 @@ const Login = () => {
 
   const handleButtonClick = () => {
     //validate the form data
-    const message = checkValidData(
-      name.current.value,
-      email.current.value,
-      password.current.value
-    );
+    const message = checkValidData(email.current.value, password.current.value);
+    console.log(email.current.value);
+    console.log(password.current.value);
+    setErrorMessage(message);
     if (message) return; //if message is there, then return from here
 
     // SignUp/SignIn logic ahead:
@@ -34,6 +33,7 @@ const Login = () => {
         password.current.value
       )
         .then((userCredential) => {
+          // window.location = "index.html";
           const user = userCredential.user;
           console.log(user);
         })
