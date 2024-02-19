@@ -1,4 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { checkValidData } from "../utils/validate";
 import Header from "./Header";
 import { useState, useRef } from "react";
@@ -19,8 +22,7 @@ const Login = () => {
   const handleButtonClick = () => {
     //validate the form data
     const message = checkValidData(email.current.value, password.current.value);
-    console.log(email.current.value);
-    console.log(password.current.value);
+    console.log(email.current.value, password.current.value);
     setErrorMessage(message);
     if (message) return; //if message is there, then return from here
 
@@ -35,7 +37,7 @@ const Login = () => {
         .then((userCredential) => {
           // window.location = "index.html";
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -44,6 +46,20 @@ const Login = () => {
         });
     } else {
       //signIn logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
     }
   };
 
