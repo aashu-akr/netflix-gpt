@@ -84,6 +84,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Firebasse setup
 - Deploy our application
 - create SignUp user account
+- implement sign in user api
+- created redux store with UserSlice
+- onAuthStateChange()
 
 # features
 
